@@ -1,0 +1,60 @@
+.bottom-curve {
+    position: fixed;
+    bottom: 250px;
+    left: 0;
+    width: 100%;
+    overflow: hidden; /* 곡선이 넘치지 않도록 처리 */
+    background: transparent; /* 배경을 투명하게 설정 */
+    line-height: 0; /* 불필요한 여백 제거 */
+    z-index: 1;
+  }
+  
+/* 곡선 SVG 설정 */
+.curve-svg {
+    display: block;
+    position: relative;
+    width: 100%;
+    height: 380px; /* 곡선의 높이 조정 */
+    background: transparent; /* 배경을 투명하게 설정 */
+}
+
+/* 곡선 기본 스타일 */
+.curve-path {
+    fill: none; /* 내부 색상 없음 */
+    stroke: #cecece; /* 흰색 글로우 효과 */
+    stroke-width: 1; /* 선 두께 */
+    stroke-linecap: round; /* 끝 부분을 둥글게 */
+    filter:none; /* 블러 제거 */
+  }
+
+/* 활성화 상태에서 애니메이션 적용 */
+.curve-path.glow-animation {
+    stroke-width: 4;
+    stroke-dasharray: 150;
+    stroke-dashoffset: 0;
+    animation: glowPulse 2s infinite alternate;
+}
+
+@keyframes glowPulse {
+    from {
+        stroke-width: 2;
+        stroke-dashoffset: 150;
+        filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.5));
+    }
+    to {
+        stroke-width: 4;
+        stroke-dashoffset: 0;
+        filter: drop-shadow(0 0 20px rgba(255, 255, 255, 1));
+    }
+}
+  
+/* 너비가 768px 이상일 때 다른 곡선 표시 */
+@media (min-width: 768px) {
+    .curve-svg {
+      display: block; /* 기본 곡선 숨김 */
+    }
+    .curve-svg.wide {
+      display: block; /* 넓은 화면 곡선 표시 */
+      
+    }
+  }
