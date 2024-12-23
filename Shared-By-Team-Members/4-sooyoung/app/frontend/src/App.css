@@ -52,8 +52,8 @@
   /*         마이크 버튼 스타일         */
   /* ============================= */
   .microphone-button {
-    position: absolute;
-    top: 53%; /* 세로 위치 조정 79% 네모 칸 중간, 53% 위쪽 */
+    position: fixed;
+    top: 79%; /* 세로 위치 조정 79% 네모 칸 중간, 53% 위쪽 */
     width: 160px;
     height: 160px !important;
     border-radius: 50% !important; /* 원형 버튼 */ 
@@ -63,10 +63,11 @@
     justify-content: center;
     align-items: center;
     font-size: 1.5rem; /* 아이콘 크기 */
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* 그림자 효과 */
+    box-shadow: 0 4px 10px rgb(0, 56, 109); /* 그림자 효과 */
     cursor: pointer;
     transition: transform 0.2s ease, box-shadow 0.2s ease;
-    z-index: 10; /* 우선순위 조정 (그리드 위에 배치) */
+    z-index: 20; /* 우선순위 조정 (그리드 위에 배치) */
+    
   }
   
   .microphone-button:hover,
@@ -74,6 +75,7 @@
     transform: scale(1.01); /* 마우스 호버 시 확대 */
     background-color: #002244; /* 활성화 상태에서도 배경색 유지 */
     box-shadow: 0 0 20px rgba(255, 255, 255, 0.8), 0 0 30px rgba(255, 255, 255, 0.6); /* 글로우 효과 */
+    opacity: 1 !important; /* 투명도 강제로 유지 */
   }
 
   .mic-icon {
@@ -92,17 +94,37 @@
   .button-grid {
     display: grid;
     grid-template-columns: 1fr 1fr; /* 2x2 레이아웃 */
-    gap: 0px; /* 버튼 간격 */
-    padding: 20px;
-    position: absolute;
+    padding: 0px; /* 외곽선과 레이아웃 선 간격 */
+    padding-block: 0px;
+    position: fixed;
     bottom: 0%; /* 하단 위치 */
     height: 30%;
     width: 100%; /* 전체 너비 */
     max-width: 100%;
     background-color: rgba(255, 255, 255, 0.9);
-    border-radius: 20px;
+    border-radius: 50px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    z-index: 10;
   }
+
+  /* 내부 선 라인 */
+.grid-button:first-child {
+  border-top-left-radius: 50px; /* 왼쪽 위 둥글게 */
+}
+
+.grid-button:last-child {
+  border-bottom-right-radius: 50px; /* 오른쪽 위 둥글게 */
+  border-bottom-right-radius: 50px; /* 오른쪽 아래 둥글게 */
+}
+
+.grid-button:nth-last-child(2) { 
+  border-bottom-left-radius: 50px; /* 왼쪽 아래 둥글게 */
+}
+
+.grid-button:nth-child(2) {
+  border-top-right-radius: 50px; /* 우측 상단 둥글게 */
+}
+
   
   .grid-button {
     display: flex;
@@ -127,7 +149,7 @@
   */
   
   .grid-button:hover {
-    transform: scale(1.05); /* 버튼 확대 효과 */
+    transform: scale(1.01); /* 버튼 확대 효과 */
     background-color: rgba(220, 228, 235, 0.2); /* 호버 시 배경색 변경 */
   }
   
