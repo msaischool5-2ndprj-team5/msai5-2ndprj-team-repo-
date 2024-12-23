@@ -10,24 +10,15 @@ export type HistoryItem = {
     groundingFiles: GroundingFile[];
 };
 
-export type InputAudioTranscription = {
-    model: "whisper-1";
-    language?: string; // language 속성 추가
-};
-
-export type ResponseGeneration = {
-    language: string; // 언어 설정
-};
-
 export type SessionUpdateCommand = {
     type: "session.update";
     session: {
         turn_detection?: {
             type: "server_vad" | "none";
         };
-        input_audio_transcription?: InputAudioTranscription; // 확장된 타입 사용
-        response_generation?: ResponseGeneration; // 응답 생성 속성 추가
-        voice?: string; // voice 속성 추가
+        input_audio_transcription?: {
+            model: "whisper-1";
+        };
     };
 };
 
