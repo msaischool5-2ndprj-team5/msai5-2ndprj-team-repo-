@@ -1,0 +1,9 @@
+[
+    {
+        "date": "date(yyyy-mm-dd)",
+        "time": "time(hh:MM:ss)",
+        "destination": "str",
+        "purpose": "str",
+        "isDone": "bool"
+    }
+]
