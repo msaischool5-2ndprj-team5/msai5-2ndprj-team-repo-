@@ -1,0 +1,71 @@
+/* 전체 화면 */
+.chat-history {
+    padding: 20px;
+    font-family: Arial, sans-serif;
+    background-color: #f9f9f9;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+}
+
+/* 헤더 */
+.chat-header {
+    font-size: 28px;
+    color: #002244; /* 네이비 색상 */
+    margin-bottom: 20px;
+}
+
+/* 대화 컨테이너 */
+.chat-container {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    width: 100%;
+    max-width: 600px;
+    padding: 0 10px;
+    overflow-y: auto;
+    max-height: 70vh; /* 스크롤 가능 */
+}
+
+/* 사용자 메시지 말풍선 */
+.chat-bubble.user {
+    background-color: #002244; /* 네이비 색상 */
+    color: #ffffff;
+    padding: 20px 25px; /* 내부 여백 */
+    border-radius: 25px; /* 둥근 모서리 */
+    font-size: 20px; /* 글씨 크기 */
+    line-height: 1.6; /* 줄 간격 */
+    word-wrap: break-word;
+    max-width: 80%; /* 말풍선 너비 */
+    align-self: flex-end; /* 오른쪽 정렬 */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s;
+}
+
+.chat-bubble.user:hover {
+    background-color: #004080; /* 호버 시 색상 */
+}
+
+/* 컴퓨터 말풍선 */
+.chat-bubble.bot {
+    background-color: #eeeeee;
+    color: #333333;
+    padding: 20px 25px;
+    border-radius: 25px;
+    font-size: 20px;
+    align-self: flex-start;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* 스크롤바 커스터마이징 (선택 사항) */
+.chat-container::-webkit-scrollbar {
+    width: 8px;
+}
+
+.chat-container::-webkit-scrollbar-thumb {
+    background-color: #002244;
+    border-radius: 10px;
+}

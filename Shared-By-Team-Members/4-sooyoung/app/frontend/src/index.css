@@ -3,9 +3,19 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+    font-family: 'GMarketSans';
+    src: url('./assets/fonts/GMarketSansMedium.otf') format('truetype');
+  }
+  
+  @font-face {
+    font-family: 'GMarketSansBold';
+    src: url('./assets/fonts/GMarketSansBold.otf') format('truetype');
+  }
+
 /* CSS_root 기본 스타일 설정 */
 :root {
-    font-family: "Segoe UI", Inter, system-ui, Avenir, Helvetica, Arial, sans-serif; /* 기본 폰트 */
+    font-family: "GMarketSans", Inter, system-ui, Avenir, Helvetica, Arial, sans-serif; /* 기본 폰트 */
 
     font-synthesis: none; /* 기울임이나 굵은 글꼴 자동생성 X */
     text-rendering: optimizeLegibility; /* 텍스트 렌더링 품질 업 */
